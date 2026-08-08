@@ -1,4 +1,4 @@
-The Activities were:
+The Activities on the page were:
 
 [DotNetDebugging](https://learn.microsoft.com/en-us/training/modules/dotnet-debug/)
 
