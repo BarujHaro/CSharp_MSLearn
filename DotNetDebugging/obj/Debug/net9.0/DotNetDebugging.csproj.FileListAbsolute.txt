@@ -1,0 +1,15 @@
+C:\Users\baruj\OneDrive\Desktop\practicas\CursoCsharp\DotNetDebugging\bin\Debug\net9.0\DotNetDebugging.exe
+C:\Users\baruj\OneDrive\Desktop\practicas\CursoCsharp\DotNetDebugging\bin\Debug\net9.0\DotNetDebugging.deps.json
+C:\Users\baruj\OneDrive\Desktop\practicas\CursoCsharp\DotNetDebugging\bin\Debug\net9.0\DotNetDebugging.runtimeconfig.json
+C:\Users\baruj\OneDrive\Desktop\practicas\CursoCsharp\DotNetDebugging\bin\Debug\net9.0\DotNetDebugging.dll
+C:\Users\baruj\OneDrive\Desktop\practicas\CursoCsharp\DotNetDebugging\bin\Debug\net9.0\DotNetDebugging.pdb
+C:\Users\baruj\OneDrive\Desktop\practicas\CursoCsharp\DotNetDebugging\obj\Debug\net9.0\DotNetDebugging.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\baruj\OneDrive\Desktop\practicas\CursoCsharp\DotNetDebugging\obj\Debug\net9.0\DotNetDebugging.AssemblyInfoInputs.cache
+C:\Users\baruj\OneDrive\Desktop\practicas\CursoCsharp\DotNetDebugging\obj\Debug\net9.0\DotNetDebugging.AssemblyInfo.cs
+C:\Users\baruj\OneDrive\Desktop\practicas\CursoCsharp\DotNetDebugging\obj\Debug\net9.0\DotNetDebugging.csproj.CoreCompileInputs.cache
+C:\Users\baruj\OneDrive\Desktop\practicas\CursoCsharp\DotNetDebugging\obj\Debug\net9.0\DotNetDebugging.sourcelink.json
+C:\Users\baruj\OneDrive\Desktop\practicas\CursoCsharp\DotNetDebugging\obj\Debug\net9.0\DotNetDebugging.dll
+C:\Users\baruj\OneDrive\Desktop\practicas\CursoCsharp\DotNetDebugging\obj\Debug\net9.0\refint\DotNetDebugging.dll
+C:\Users\baruj\OneDrive\Desktop\practicas\CursoCsharp\DotNetDebugging\obj\Debug\net9.0\DotNetDebugging.pdb
+C:\Users\baruj\OneDrive\Desktop\practicas\CursoCsharp\DotNetDebugging\obj\Debug\net9.0\DotNetDebugging.genruntimeconfig.cache
+C:\Users\baruj\OneDrive\Desktop\practicas\CursoCsharp\DotNetDebugging\obj\Debug\net9.0\ref\DotNetDebugging.dll

@@ -1,0 +1,37 @@
+Logging and tracing in .NET applications
+
+As you continue developing your application and it gets more complex, you'll want to apply additional debug diagnostics to your application.
+
+Tracing is a way for you to monitor your application's execution while it's running. You can add tracing and debugging instrumentation to your .NET application when you develop it. You can use that instrumentation while you're developing the application and after you've deployed it.
+
+This simple technique is surprisingly powerful. You can use it in situations where you need more than a debugger:
+
+Issues that occur over long periods of time can be difficult to debug with a traditional debugger. Logs allow for detailed post-mortem review that spans long periods of time. In contrast, debuggers are constrained to real-time analysis.
+Multi-threaded applications and distributed applications are often difficult to debug. Attaching a debugger tends to modify behaviors. You can analyze detailed logs as needed to understand complex systems.
+Issues in distributed applications might arise from a complex interaction between many components. It might not be reasonable to connect a debugger to every part of the system.
+Many services shouldn't be stalled. Attaching a debugger often causes timeout failures.
+Issues aren't always foreseen. Logging and tracing are designed for low overhead so that programs can always be recording in case an issue occurs.
+
+Write information to output windows
+Up to this point, we've been using the console to display information to the application user. There are other types of applications built with .NET that have user interfaces, such as mobile, web, and desktop apps, and there's no visible console. In these applications, System.Console logs messages "behind the scenes." These messages might show up in an output window in Visual Studio or Visual Studio Code. They also might be output to a system log such as Android's logcat.
+
+
+Define TRACE and DEBUG constants
+By default, when an application is running under debug, the DEBUG constant is defined. You can control this by adding a DefineConstants entry in the project file in a property group. Here's an example of turning on TRACE for both Debug and Release configurations in addition to DEBUG for Debug configurations.
+
+XML
+<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+</PropertyGroup>
+<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE</DefineConstants>
+</PropertyGroup>
+
+Conditional tracing
+In addition to simple Write and WriteLine methods, there's also the capability to add conditions with WriteIf and WriteLineIf. As an example, the following logic checks if the count is zero and then writes a debug message:
+
+C#
+if(count == 0)
+{
+    Debug.WriteLine("The count is 0 and this may cause an exception.");
+}

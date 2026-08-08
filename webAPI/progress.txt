@@ -1,0 +1,29 @@
+dotnet new webapi -controllers -f net8.0
+
+Controllers/	Contains classes with public methods exposed as HTTP endpoints.
+Program.cs	Configures services and the app's HTTP request pipeline, and contains the app's managed entry point.
+ContosoPizza.csproj	Contains configuration metadata for the project.
+ContosoPizza.http	Contains configuration to test REST APIs directly from Visual Studio Code.
+
+ControllerBase
+A controller is a public class with one or more public methods known as actions. By convention, a controller is placed in the project root's Controllers directory. The actions are exposed as HTTP endpoints via routing. So an HTTP GET request to https://localhost:{PORT}/weatherforecast causes the Get() method of the WeatherForecastController class to be executed.
+
+API controller class attributes
+Two important attributes are applied to WeatherForecastController, as shown in the following code:
+
+C#
+[ApiController]
+[Route("[controller]")]
+public class WeatherForecastController : ControllerBase
+
+[ApiController] enables opinionated behaviors that make it easier to build web APIs. Some behaviors include parameter source inference, attribute routing as a requirement, and model validation error-handlingenhancements*.
+
+[Route] defines the routing pattern [controller]. The controller's name (case-insensitive, without the Controller suffix) replaces the [controller] token. This controller handles requests to https://localhost:{PORT}/weatherforecast.
+
+GET	Read	[HttpGet]
+POST	Create	[HttpPost]
+PUT	Update	[HttpPut]
+DELETE	Delete	[HttpDelete]
+
+NoContent	204	The pizza was deleted from the in-memory cache.
+NotFound	404	A pizza that matches the provided id parameter doesn't exist in the in-memory cache.

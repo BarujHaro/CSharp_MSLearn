@@ -1,0 +1,37 @@
+dotnet new console -f net8.0
+
+This command creates a Program.cs file in your folder with a 
+basic "Hello World" program already written, 
+along with a C# project file named DotNetDependencies.csproj.
+
+You should now have access to these files.
+-| obj
+-| DotNetDependencies.csproj
+-| Program.cs
+
+Install the Humanizer library by running the following command:
+dotnet add package Humanizer --version 2.7.9
+
+Open the DotNetDependencies.csproj file and find the ItemGroup section. You should now have an entry that looks like this one:
+
+XML
+<ItemGroup>
+    <PackageReference Include="Humanizer" Version="2.7.9" />
+</ItemGroup>
+
+dotnet run
+
+To see installed dependencies, run this command:
+dotnet list package
+
+To see what dependencies are outdated, run this command:
+dotnet list package --outdated
+
+By default, this command checks for the latest stable version. To check for prerelease packages, append --include-prerelease to the previous command:
+
+dotnet list package --outdated --include-prerelease
+
+You can, with some level of confidence, update to the Latest version. Doing so ensures the dependencies get the latest features and patches in that major version. To install the latest version, run the following command:
+
+.NET CLI
+dotnet add package Humanizer 

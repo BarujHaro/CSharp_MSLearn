@@ -1,0 +1,94 @@
+Include the System.IO namespace
+The System.IO namespace contains built-in types that allow you to interact with files and directories. For example, you can retrieve collections of files and directories based on search criteria and get and set properties for files and directories. You can also use System.IO namespace types to synchronously and asynchronously read and write data streams and files.
+
+List all directories
+The Directory class is often used to list out (or enumerate) directories. For instance, the Tailwind Traders file structure has a root folder called stores.
+
+
+To read through and list the names of the top-level directories, use the Directory.EnumerateDirectories function.
+
+IEnumerable<string> listOfDirectories = Directory.EnumerateDirectories("stores");
+foreach (var dir in listOfDirectories) {
+    Console.WriteLine(dir);
+}
+
+List files in a specific directory
+
+To list the names of all of the files in a directory, you can use the Directory.EnumerateFiles function.
+IEnumerable<string> files = Directory.EnumerateFiles("stores");
+
+foreach (var file in files)
+{
+    Console.WriteLine(file);
+}
+
+List all content in a directory and all subdirectories
+Both the Directory.EnumerateDirectories and Directory.EnumerateFiles functions have an overload that accepts a parameter to specify that search pattern files and directories must match.
+// Find all *.txt files in the stores folder and its subfolders
+IEnumerable<string> allFilesInAllFolders = Directory.EnumerateFiles("stores", "*.txt", SearchOption.AllDirectories);
+
+foreach (var file in allFilesInAllFolders)
+{
+    Console.WriteLine(file);
+}
+
+
+
+---------
+
+In the terminal window, run the following command to clone the starter project and go to the cloned project:
+git clone https://github.com/MicrosoftDocs/mslearn-dotnet-files
+cd mslearn-dotnet-files
+
+Run the following command to create a new .NET Console project:
+dotnet new console -f net8.0 -n mslearn-dotnet-files -o .
+
+Run the following command to open the new .NET project in the same instance of Visual Studio Code:
+code -a .
+
+In the Explorer window, under mslearn-dotnet-files, expand the stores folder and each of the numbered folders inside.
+
+
+
+.NET exposes the full path to the current directory via the Directory.GetCurrentDirectory method.
+Console.WriteLine(Directory.GetCurrentDirectory());
+
+The following code returns the path to the equivalent of the Windows My Documents folder, or the user's HOME directory for any operating system, even if the code is running on Linux:
+string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+.NET automatically interprets that field into the separator character that's applicable to the operating system when you need to build a path manually.
+Console.WriteLine($"stores{Path.DirectorySeparatorChar}201");
+
+For instance, if you want to get the path to the stores/201 folder, you can use the Path.Combine function to do that.
+Console.WriteLine(Path.Combine("stores","201")); // outputs: stores/201
+
+
+Determine filename extensions
+The Path class can also tell you a filename's extension. If you have a file and you want to know if it's a JSON file, you can use the Path.GetExtension function.
+Console.WriteLine(Path.GetExtension("sales.json"));
+
+
+Create directories
+Use the Directory.CreateDirectory method to create directories. The following method creates a new folder called newDir inside the 201 folder:
+Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "stores","201","newDir"));
+
+Create files
+File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(), "greeting.txt"), "Hello World!");
+
+Read data from files
+Files are read through the ReadAllText method on the File class.
+File.ReadAllText($"stores{Path.DirectorySeparatorChar}201{Path.DirectorySeparatorChar}sales.json");
+
+Write data to files
+You learned how to write files in the previous exercise; it's just that you wrote an empty one. To write data to a file, use the same WriteAllText method, but pass in the data that you want to write.
+var data = JsonConvert.DeserializeObject<SalesTotal>(salesJson);
+File.WriteAllText($"salesTotalDir{Path.DirectorySeparatorChar}totals.txt", data.Total.ToString());
+
+
+Append data to files
+In the preceding example, the file is overwritten every time you write to it. Sometimes, you don't want that. You want to append data to the file instead of replacing it entirely. You can append data with the File.AppendAllText method. By default, File.AppendAllText creates the file if it doesn't already exist.
+var data = JsonConvert.DeserializeObject<SalesTotal>(salesJson);
+File.AppendAllText($"salesTotalDir{Path.DirectorySeparatorChar}totals.txt", $"{data.Total}{Environment.NewLine}");
+
+
+dotnet add package Newtonsoft.Json

@@ -1,0 +1,47 @@
+Start the program by selecting the Run and Debug tab on the left, then selecting the Start debugging button. You might need to select the Run and Debug button first, then select the Program.cs file.
+
+If the debug console doesn't appear, select Ctrl+Shift+Y for Windows and Linux or Cmd+Shift+Y for Mac. You should see several lines of diagnostic information, followed by these lines at the end:
+
+Use breakpoints and step-by-step execution
+Add a breakpoint by clicking in the left margin at line 1 on int result = Fibonacci(5);.
+
+Start debugging again. The program begins to execute. It breaks (pauses execution) on line 1 because of the breakpoint you set. Use the debugger controls to step into the Fibonacci() function.
+
+Check the variables state
+Now, take some time to inspect the different variables' values by using the Variables panel.
+
+What is the value shown for the n parameter?
+At the beginning of the function's execution, what are the values for the local variables n1, n2, and sum?
+Next, we'll advance into the for loop by using the Step Over debugger control.
+
+
+Continue advancing until you hit the first line inside of the for loop, on the line that reads:
+
+Locate the bug with breakpoints
+Stepping through your code can be helpful but tedious, especially when you're working with loops or other code that's called repeatedly. Rather than stepping through the loop over and over, we can set a new breakpoint on the first line of the loop.
+
+When we're doing this, it's important to be strategic about where we put our breakpoints. We're especially interested in the value of sum, because it represents the current maximum Fibonacci value. Because of that, let's put our breakpoint on the line after sum is set.
+
+Add a second breakpoint on line 13.
+
+Now that we have a good breakpoint set in the loop, use the Continue debugger control to advance until the breakpoint is hit. Looking at our local variables, we see the following lines:
+
+Select Continue to continue program flow until the next breakpoint is hit, which will be on the next pass through the loop.
+
+Okay, let's select Continue to loop it again.
+
+At this point, you might start wondering if the code was correct all along and you imagined the bug! Let's keep with it for the last time through the loop. Select Continue one more time.
+
+Let's set one more breakpoint on line 17, which reads:
+
+Remove the previous breakpoints on lines 1 and 13. You can do that by clicking them in the margin next to the line numbers, or by clearing the breakpoint check boxes for lines 1 and 13 in the Breakpoints pane in the lower left.
+
+Start the debugger one last time.
+
+Stop the debugging session if you haven't already.
+
+Next, make the preceding change to line 10 and leave our breakpoint on line 17.
+
+Restart the debugger. This time, when we hit the breakpoint on line 17, we'll see the following values:
+
+Select Continue just to make sure the program returns the correct value.
